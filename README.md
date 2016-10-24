@@ -99,6 +99,8 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.6.2:
+  * Moved non generic AstInheritableVisitor.
 * 0.6.1:
   * Upgraded to FSharp.Compiler Service 6.0.2 (You must be rearrenging for NuGet package installation with -Pre option, because 6.0.2 depends for System.Reflection.Metadata.dll BETA package.)
 * 0.5.1:

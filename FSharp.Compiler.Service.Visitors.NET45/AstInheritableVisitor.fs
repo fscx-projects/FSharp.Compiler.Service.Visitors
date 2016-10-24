@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Mon, 24 Oct 2016 07:40:35 GMT
+// Generated: Mon, 24 Oct 2016 09:22:07 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitors
@@ -17921,4 +17921,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
       this.VisitInput (new 'TContext()) parsedInput
     finally
       symInf <- None
+
+/// <summary>
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
+/// </summary>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type AstInheritableVisitor() =
+  inherit AstInheritableVisitor<NoContext>()
 

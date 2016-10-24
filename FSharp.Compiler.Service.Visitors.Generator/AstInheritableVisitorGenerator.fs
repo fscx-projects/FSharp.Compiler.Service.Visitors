@@ -184,5 +184,12 @@ type internal AstInheritableVisitorGenerator() =
       "      this.VisitInput (new 'TContext()) parsedInput\r\n" +
       "    finally\r\n" +
       "      symInf <- None\r\n"
+     yield "\r\n" +
+      "/// <summary>\r\n" +
+      "/// FSharp.Compiler.Service's untyped AST inheritable visitor.\r\n" +
+      "/// </summary>\r\n" +
+      "[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]\r\n" +
+      "type AstInheritableVisitor() =\r\n" +
+      "  inherit AstInheritableVisitor<NoContext>()\r\n"
      yield "\r\n"
   }

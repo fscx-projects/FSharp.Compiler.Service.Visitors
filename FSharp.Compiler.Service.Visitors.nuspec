@@ -16,7 +16,7 @@
     <releaseNotes>Can apply visitor pattern with minimum coding for FSharp.Compiler.Service's untyped ASTs.</releaseNotes>
     <tags>F# compiler service fcs visitor pattern</tags>
     <dependencies>
-      <group targetFramework="net45">
+      <group>
         <dependency id="FSharp.Core" version="4.0.0.1" />
         <dependency id="FSharp.Compiler.Service" version="6.0.2" />
       </group>
