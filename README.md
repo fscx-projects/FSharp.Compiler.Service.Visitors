@@ -8,7 +8,7 @@
 
 | NuGet | [![NuGet FSharp.Compiler.Service.Visitors](https://img.shields.io/nuget/v/FSharp.Compiler.Service.Visitors.svg?style=flat)](https://www.nuget.org/packages/FSharp.Compiler.Service.Visitors) |
 |:----|:----:|
-| CI (AppVeyor) | [![AppVeyor FSharp.Compiler.Service.Visitors](https://img.shields.io/appveyor/ci/kekyo/FSharp.Compiler.Service.Visitors/master.svg)](https://ci.appveyor.com/project/kekyo/FSharp.Compiler.Service.Visitors) |
+| CI (AppVeyor) | [![AppVeyor FSharp.Compiler.Service.Visitors](https://img.shields.io/appveyor/ci/kekyo/fsharp-compiler-service-visitors/master.svg)](https://ci.appveyor.com/project/kekyo/fsharp-compiler-service-visitors |
 | Issue status | [![Issue Stats](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors/badge/issue)](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors) |
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors/badge/pr)](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors) |
 
