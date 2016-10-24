@@ -8,7 +8,7 @@
 
 | NuGet | [![NuGet FSharp.Compiler.Service.Visitors](https://img.shields.io/nuget/v/FSharp.Compiler.Service.Visitors.svg?style=flat)](https://www.nuget.org/packages/FSharp.Compiler.Service.Visitors) |
 |:----|:----:|
-| CI (AppVeyor) | [![AppVeyor FSharp.Compiler.Service.Visitors](https://img.shields.io/appveyor/ci/kekyo/fsharp-compiler-service-visitors/master.svg)](https://ci.appveyor.com/project/kekyo/fsharp-compiler-service-visitors |
+| CI (AppVeyor) | [![AppVeyor FSharp.Compiler.Service.Visitors](https://img.shields.io/appveyor/ci/kekyo/fsharp-compiler-service-visitors/master.svg)](https://ci.appveyor.com/project/kekyo/fsharp-compiler-service-visitors) |
 | Issue status | [![Issue Stats](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors/badge/issue)](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors) |
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors/badge/pr)](http://issuestats.com/github/fscx-projects/FSharp.Compiler.Service.Visitors) |
 
@@ -91,7 +91,7 @@ type InsertLoggingVisitor() =
 ## Library depends
 
 * FSharp.Core >= 4.0.0.1
-* FSharp.Compiler.Service >= 5.0.0
+* FSharp.Compiler.Service >= 6.0.2
 
 ## Maintainers
 
@@ -99,6 +99,8 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.6.1:
+  * Upgraded to FSharp.Compiler Service 6.0.2 (You must be rearrenging for NuGet package installation with -Pre option, because 6.0.2 depends for System.Reflection.Metadata.dll BETA package.)
 * 0.5.1:
   * Moving implements from FSharp.Expandable.Compiler.Core.
   * Code neutralize.

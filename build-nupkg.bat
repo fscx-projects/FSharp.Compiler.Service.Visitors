@@ -18,6 +18,6 @@ rem   PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
 rem   THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
 rem   HEREUNDER.
 
-set nupkg_version=0.5.1
+set nupkg_version=0.6.1
 
 .nuget\nuget pack FSharp.Compiler.Service.Visitors.nuspec -Prop Version=%nupkg_version% -Prop Configuration=Release
