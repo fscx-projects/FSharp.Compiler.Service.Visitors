@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FSharp.Compiler.Service.Visitors</id>
+    <version>$Version$</version>
+    <title>FSharp.Compiler.Service.Visitors</title>
+    <authors>Kouji Matsui, bleis-tift</authors>
+    <owners>Kouji Matsui</owners>
+    <description>Can apply visitor pattern with minimum coding for FSharp.Compiler.Service's untyped ASTs.</description>
+    <summary>F# Compiler service's visitor pattern library.</summary>
+    <copyright>Authors: Kouji Matsui, bleis-tift</copyright>
+    <licenseUrl>https://creativecommons.org/publicdomain/zero/1.0/legalcode</licenseUrl>
+    <projectUrl>https://github.com/fscx-projects/FSharp.Compiler.Service.Visitors</projectUrl>
+    <iconUrl> https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Can apply visitor pattern with minimum coding for FSharp.Compiler.Service's untyped ASTs.</releaseNotes>
+    <tags>F# compiler service fcs visitor pattern</tags>
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="FSharp.Core" version="4.0.0.1" />
+        <dependency id="FSharp.Compiler.Service" version="5.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.dll" target="lib/net45" />
+    <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.xml" target="lib/net45" />
+    <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.pdb" target="lib/net45" />
+  </files>
+</package>
