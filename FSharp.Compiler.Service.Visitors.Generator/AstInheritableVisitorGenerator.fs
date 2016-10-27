@@ -172,19 +172,6 @@ type internal AstInheritableVisitorGenerator() =
     seq {
      yield! lines
      yield "\r\n" +
-      "  /// <summary>\r\n" +
-      "  /// Visit the parsed input (Entry point).\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <param name=\"symbolInformation\">Symbol information.</param>\r\n" +
-      "  /// <param name=\"parsedInput\">Target for ParsedInput instance.</param>\r\n" +
-      "  /// <returns>Visited instance.</returns>\r\n" +
-      "  member this.Visit(symbolInformation, parsedInput) = \r\n" +
-      "    symInf <- Some symbolInformation\r\n" +
-      "    try\r\n" +
-      "      this.VisitInput (new 'TContext()) parsedInput\r\n" +
-      "    finally\r\n" +
-      "      symInf <- None\r\n"
-     yield "\r\n" +
       "/// <summary>\r\n" +
       "/// FSharp.Compiler.Service's untyped AST inheritable visitor.\r\n" +
       "/// </summary>\r\n" +

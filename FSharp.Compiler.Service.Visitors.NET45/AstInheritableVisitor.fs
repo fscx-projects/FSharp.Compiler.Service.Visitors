@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Mon, 24 Oct 2016 09:22:07 GMT
+// Generated: Thu, 27 Oct 2016 01:01:24 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitors
@@ -14,9 +14,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitors
 /// </summary>
 /// <typeparam name="'TContext">Custom context type.</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>() =
-
-  let mutable symInf: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults option = None
+type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
   let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitors.AstElement>()
@@ -25,14 +23,6 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Parent nodes.
   /// </summary>
   member __.Parents = parents |> List.ofSeq
-
-  /// <summary>
-  /// Symbol information.
-  /// </summary>
-  member __.SymbolInformation =
-    match symInf with
-    | Some(si) -> si
-    | None -> failwith "Not given symbol information for current state."
 
   //////////////////////////////////////////////
   // Expression: ParsedFsiInteraction
@@ -17908,19 +17898,6 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
     finally
       parents.Pop() |> ignore
 
-
-  /// <summary>
-  /// Visit the parsed input (Entry point).
-  /// </summary>
-  /// <param name="symbolInformation">Symbol information.</param>
-  /// <param name="parsedInput">Target for ParsedInput instance.</param>
-  /// <returns>Visited instance.</returns>
-  member this.Visit(symbolInformation, parsedInput) = 
-    symInf <- Some symbolInformation
-    try
-      this.VisitInput (new 'TContext()) parsedInput
-    finally
-      symInf <- None
 
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST inheritable visitor.
