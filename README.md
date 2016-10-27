@@ -99,6 +99,8 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.6.3:
+  * Reduced context type constraints.
 * 0.6.2:
   * Moved non generic AstInheritableVisitor.
 * 0.6.1:
