@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 27 Oct 2016 01:01:24 GMT
+// Generated: Tue, 20 Dec 2016 01:54:19 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitors
@@ -17,12 +17,12 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitors
 type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
-  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitors.AstElement>()
+  let mutable parents : Microsoft.FSharp.Compiler.Ast.Visitors.AstElement list = []
 
   /// <summary>
   /// Parent nodes.
   /// </summary>
-  member __.Parents = parents |> List.ofSeq
+  member __.Parents = parents
 
   //////////////////////////////////////////////
   // Expression: ParsedFsiInteraction
@@ -151,7 +151,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitFsiInteraction
       (context: 'TContext)
       (parsedFsiInteraction: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.FsiInteraction parsedFsiInteraction)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.FsiInteraction parsedFsiInteraction)::parents
     try
       match parsedFsiInteraction with
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
@@ -159,7 +159,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range) ->
         this.BeforeVisitFsiInteraction_IHash(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedHashDirective
@@ -240,13 +240,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitHashDirective
       (context: 'TContext)
       (parsedHashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.HashDirective parsedHashDirective)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.HashDirective parsedHashDirective)::parents
     try
       match parsedHashDirective with
       | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range) ->
         this.BeforeVisitHashDirective_ParsedHashDirective(context, item1, item2, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedImplFile
@@ -318,13 +318,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitImplFile
       (context: 'TContext)
       (parsedImplFile: Microsoft.FSharp.Compiler.Ast.ParsedImplFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFile parsedImplFile)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFile parsedImplFile)::parents
     try
       match parsedImplFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
         this.BeforeVisitImplFile_ParsedImplFile(context, hashDirectives, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedImplFileFragment
@@ -546,7 +546,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitImplFileFragment
       (context: 'TContext)
       (parsedImplFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFileFragment parsedImplFileFragment)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFileFragment parsedImplFileFragment)::parents
     try
       match parsedImplFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
@@ -556,7 +556,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
         this.BeforeVisitImplFileFragment_NamespaceFragment(context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedImplFileInput
@@ -673,13 +673,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitImplFileInput
       (context: 'TContext)
       (parsedImplFileInput: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFileInput parsedImplFileInput)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ImplFileInput parsedImplFileInput)::parents
     try
       match parsedImplFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
         this.BeforeVisitImplFileInput_ParsedImplFileInput(context, filename, isScript, item3, item4, item5, item6, item7)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedInput
@@ -790,7 +790,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitInput
       (context: 'TContext)
       (parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Input parsedInput)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Input parsedInput)::parents
     try
       match parsedInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
@@ -798,7 +798,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item) ->
         this.BeforeVisitInput_SigFile(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedSigFile
@@ -870,13 +870,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSigFile
       (context: 'TContext)
       (parsedSigFile: Microsoft.FSharp.Compiler.Ast.ParsedSigFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFile parsedSigFile)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFile parsedSigFile)::parents
     try
       match parsedSigFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
         this.BeforeVisitSigFile_ParsedSigFile(context, hashDirectives, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedSigFileFragment
@@ -1098,7 +1098,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSigFileFragment
       (context: 'TContext)
       (parsedSigFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFileFragment parsedSigFileFragment)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFileFragment parsedSigFileFragment)::parents
     try
       match parsedSigFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
@@ -1108,7 +1108,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
         this.BeforeVisitSigFileFragment_NamespaceFragment(context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: ParsedSigFileInput
@@ -1207,13 +1207,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSigFileInput
       (context: 'TContext)
       (parsedSigFileInput: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFileInput parsedSigFileInput)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SigFileInput parsedSigFileInput)::parents
     try
       match parsedSigFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
         this.BeforeVisitSigFileInput_ParsedSigFileInput(context, filename, item2, item3, item4, item5)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynAccess
@@ -1345,7 +1345,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitAccess
       (context: 'TContext)
       (synAccess: Microsoft.FSharp.Compiler.Ast.SynAccess) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Access synAccess)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Access synAccess)::parents
     try
       match synAccess with
       | Microsoft.FSharp.Compiler.Ast.SynAccess.Public ->
@@ -1355,7 +1355,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynAccess.Private ->
         this.BeforeVisitAccess_Private(context)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynArgInfo
@@ -1436,13 +1436,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitArgInfo
       (context: 'TContext)
       (synArgInfo: Microsoft.FSharp.Compiler.Ast.SynArgInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ArgInfo synArgInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ArgInfo synArgInfo)::parents
     try
       match synArgInfo with
       | Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id) ->
         this.BeforeVisitArgInfo_SynArgInfo(context, attributes, optional, id)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynBinding
@@ -1604,13 +1604,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitBinding
       (context: 'TContext)
       (synBinding: Microsoft.FSharp.Compiler.Ast.SynBinding) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Binding synBinding)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Binding synBinding)::parents
     try
       match synBinding with
       | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
         this.BeforeVisitBinding_Binding(context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynBindingKind
@@ -1742,7 +1742,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitBindingKind
       (context: 'TContext)
       (synBindingKind: Microsoft.FSharp.Compiler.Ast.SynBindingKind) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.BindingKind synBindingKind)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.BindingKind synBindingKind)::parents
     try
       match synBindingKind with
       | Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression ->
@@ -1752,7 +1752,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynBindingKind.DoBinding ->
         this.BeforeVisitBindingKind_DoBinding(context)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynBindingReturnInfo
@@ -1833,13 +1833,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitBindingReturnInfo
       (context: 'TContext)
       (synBindingReturnInfo: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.BindingReturnInfo synBindingReturnInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.BindingReturnInfo synBindingReturnInfo)::parents
     try
       match synBindingReturnInfo with
       | Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes) ->
         this.BeforeVisitBindingReturnInfo_SynBindingReturnInfo(context, typeName, range, attributes)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynComponentInfo
@@ -1965,13 +1965,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitComponentInfo
       (context: 'TContext)
       (synComponentInfo: Microsoft.FSharp.Compiler.Ast.SynComponentInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ComponentInfo synComponentInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ComponentInfo synComponentInfo)::parents
     try
       match synComponentInfo with
       | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
         this.BeforeVisitComponentInfo_ComponentInfo(context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynConst
@@ -3012,7 +3012,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitConst
       (context: 'TContext)
       (synConst: Microsoft.FSharp.Compiler.Ast.SynConst) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Const synConst)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Const synConst)::parents
     try
       match synConst with
       | Microsoft.FSharp.Compiler.Ast.SynConst.Unit ->
@@ -3058,7 +3058,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynConst.Measure(constant, item2) ->
         this.BeforeVisitConst_Measure(context, constant, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynConstructorArgs
@@ -3178,7 +3178,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitConstructorArgs
       (context: 'TContext)
       (synConstructorArgs: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ConstructorArgs synConstructorArgs)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ConstructorArgs synConstructorArgs)::parents
     try
       match synConstructorArgs with
       | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item) ->
@@ -3186,7 +3186,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs(item1, range) ->
         this.BeforeVisitConstructorArgs_NamePatPairs(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynEnumCase
@@ -3285,13 +3285,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitEnumCase
       (context: 'TContext)
       (synEnumCase: Microsoft.FSharp.Compiler.Ast.SynEnumCase) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.EnumCase synEnumCase)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.EnumCase synEnumCase)::parents
     try
       match synEnumCase with
       | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
         this.BeforeVisitEnumCase_EnumCase(context, attributes, id, item3, xmlDoc, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynExceptionDefn
@@ -3372,13 +3372,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitExceptionDefn
       (context: 'TContext)
       (synExceptionDefn: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionDefn synExceptionDefn)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionDefn synExceptionDefn)::parents
     try
       match synExceptionDefn with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range) ->
         this.BeforeVisitExceptionDefn_SynExceptionDefn(context, exnRepr, members, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynExceptionDefnRepr
@@ -3486,13 +3486,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitExceptionDefnRepr
       (context: 'TContext)
       (synExceptionDefnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionDefnRepr synExceptionDefnRepr)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionDefnRepr synExceptionDefnRepr)::parents
     try
       match synExceptionDefnRepr with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range) ->
         this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr(context, item1, case, longId, xmlDoc, accesibility, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynExceptionSig
@@ -3573,13 +3573,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitExceptionSig
       (context: 'TContext)
       (synExceptionSig: Microsoft.FSharp.Compiler.Ast.SynExceptionSig) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionSig synExceptionSig)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ExceptionSig synExceptionSig)::parents
     try
       match synExceptionSig with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range) ->
         this.BeforeVisitExceptionSig_SynExceptionSig(context, exnRepr, memberSigs, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynExpr
@@ -7873,7 +7873,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitExpr
       (context: 'TContext)
       (synExpr: Microsoft.FSharp.Compiler.Ast.SynExpr) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Expr synExpr)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Expr synExpr)::parents
     try
       match synExpr with
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range) ->
@@ -7993,7 +7993,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2) ->
         this.BeforeVisitExpr_Fixed(context, item1, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynField
@@ -8119,13 +8119,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitField
       (context: 'TContext)
       (synField: Microsoft.FSharp.Compiler.Ast.SynField) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Field synField)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Field synField)::parents
     try
       match synField with
       | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
         this.BeforeVisitField_Field(context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynIndexerArg
@@ -8245,7 +8245,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitIndexerArg
       (context: 'TContext)
       (synIndexerArg: Microsoft.FSharp.Compiler.Ast.SynIndexerArg) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.IndexerArg synIndexerArg)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.IndexerArg synIndexerArg)::parents
     try
       match synIndexerArg with
       | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2) ->
@@ -8253,7 +8253,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One(item) ->
         this.BeforeVisitIndexerArg_One(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynInterfaceImpl
@@ -8334,13 +8334,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitInterfaceImpl
       (context: 'TContext)
       (synInterfaceImpl: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.InterfaceImpl synInterfaceImpl)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.InterfaceImpl synInterfaceImpl)::parents
     try
       match synInterfaceImpl with
       | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
         this.BeforeVisitInterfaceImpl_InterfaceImpl(context, item1, bindings, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynMatchClause
@@ -8439,13 +8439,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitMatchClause
       (context: 'TContext)
       (synMatchClause: Microsoft.FSharp.Compiler.Ast.SynMatchClause) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MatchClause synMatchClause)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MatchClause synMatchClause)::parents
     try
       match synMatchClause with
       | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget) ->
         this.BeforeVisitMatchClause_Clause(context, item1, item2, item3, range, spTarget)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynMeasure
@@ -8916,7 +8916,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitMeasure
       (context: 'TContext)
       (synMeasure: Microsoft.FSharp.Compiler.Ast.SynMeasure) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Measure synMeasure)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Measure synMeasure)::parents
     try
       match synMeasure with
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Named(longId, range) ->
@@ -8936,7 +8936,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Var(item1, range) ->
         this.BeforeVisitMeasure_Var(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynMemberDefn
@@ -9758,7 +9758,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitMemberDefn
       (context: 'TContext)
       (synMemberDefn: Microsoft.FSharp.Compiler.Ast.SynMemberDefn) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MemberDefn synMemberDefn)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MemberDefn synMemberDefn)::parents
     try
       match synMemberDefn with
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open(longId, range) ->
@@ -9784,7 +9784,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) ->
         this.BeforeVisitMemberDefn_AutoProperty(context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynMemberSig
@@ -10093,7 +10093,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitMemberSig
       (context: 'TContext)
       (synMemberSig: Microsoft.FSharp.Compiler.Ast.SynMemberSig) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MemberSig synMemberSig)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.MemberSig synMemberSig)::parents
     try
       match synMemberSig with
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range) ->
@@ -10107,7 +10107,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range) ->
         this.BeforeVisitMemberSig_NestedType(context, typeDefnSig, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynModuleDecl
@@ -10737,7 +10737,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitModuleDecl
       (context: 'TContext)
       (synModuleDecl: Microsoft.FSharp.Compiler.Ast.SynModuleDecl) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleDecl synModuleDecl)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleDecl synModuleDecl)::parents
     try
       match synModuleDecl with
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev(item1, item2, item3) ->
@@ -10761,7 +10761,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item) ->
         this.BeforeVisitModuleDecl_NamespaceFragment(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynModuleOrNamespace
@@ -10887,13 +10887,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitModuleOrNamespace
       (context: 'TContext)
       (synModuleOrNamespace: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleOrNamespace synModuleOrNamespace)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleOrNamespace synModuleOrNamespace)::parents
     try
       match synModuleOrNamespace with
       | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range) ->
         this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace(context, id, isRec, isModule, decls, xmlDoc, attributes, access, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynModuleOrNamespaceSig
@@ -11019,13 +11019,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitModuleOrNamespaceSig
       (context: 'TContext)
       (synModuleOrNamespaceSig: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleOrNamespaceSig synModuleOrNamespaceSig)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleOrNamespaceSig synModuleOrNamespaceSig)::parents
     try
       match synModuleOrNamespaceSig with
       | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range) ->
         this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynModuleSigDecl
@@ -11514,7 +11514,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitModuleSigDecl
       (context: 'TContext)
       (synModuleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleSigDecl synModuleSigDecl)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ModuleSigDecl synModuleSigDecl)::parents
     try
       match synModuleSigDecl with
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev(id, longId, range) ->
@@ -11534,7 +11534,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item) ->
         this.BeforeVisitModuleSigDecl_NamespaceFragment(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynPat
@@ -12749,7 +12749,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitPat
       (context: 'TContext)
       (synPat: Microsoft.FSharp.Compiler.Ast.SynPat) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Pat synPat)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Pat synPat)::parents
     try
       match synPat with
       | Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range) ->
@@ -12791,7 +12791,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range) ->
         this.BeforeVisitPat_FromParseError(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynRationalConst
@@ -12968,7 +12968,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitRationalConst
       (context: 'TContext)
       (synRationalConst: Microsoft.FSharp.Compiler.Ast.SynRationalConst) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.RationalConst synRationalConst)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.RationalConst synRationalConst)::parents
     try
       match synRationalConst with
       | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer(item) ->
@@ -12978,7 +12978,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate(item) ->
         this.BeforeVisitRationalConst_Negate(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynReturnInfo
@@ -13050,13 +13050,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitReturnInfo
       (context: 'TContext)
       (synReturnInfo: Microsoft.FSharp.Compiler.Ast.SynReturnInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ReturnInfo synReturnInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ReturnInfo synReturnInfo)::parents
     try
       match synReturnInfo with
       | Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range) ->
         this.BeforeVisitReturnInfo_SynReturnInfo(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynSimplePat
@@ -13297,7 +13297,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSimplePat
       (context: 'TContext)
       (synSimplePat: Microsoft.FSharp.Compiler.Ast.SynSimplePat) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePat synSimplePat)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePat synSimplePat)::parents
     try
       match synSimplePat with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) ->
@@ -13307,7 +13307,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range) ->
         this.BeforeVisitSimplePat_Attrib(context, item1, attributes, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynSimplePatAlternativeIdInfo
@@ -13418,7 +13418,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSimplePatAlternativeIdInfo
       (context: 'TContext)
       (synSimplePatAlternativeIdInfo: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePatAlternativeIdInfo synSimplePatAlternativeIdInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePatAlternativeIdInfo synSimplePatAlternativeIdInfo)::parents
     try
       match synSimplePatAlternativeIdInfo with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided(item) ->
@@ -13426,7 +13426,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided(item) ->
         this.BeforeVisitSimplePatAlternativeIdInfo_Decided(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynSimplePats
@@ -13564,7 +13564,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitSimplePats
       (context: 'TContext)
       (synSimplePats: Microsoft.FSharp.Compiler.Ast.SynSimplePats) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePats synSimplePats)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.SimplePats synSimplePats)::parents
     try
       match synSimplePats with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range) ->
@@ -13572,7 +13572,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range) ->
         this.BeforeVisitSimplePats_Typed(context, item1, item2, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynStaticOptimizationConstraint
@@ -13710,7 +13710,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitStaticOptimizationConstraint
       (context: 'TContext)
       (synStaticOptimizationConstraint: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.StaticOptimizationConstraint synStaticOptimizationConstraint)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.StaticOptimizationConstraint synStaticOptimizationConstraint)::parents
     try
       match synStaticOptimizationConstraint with
       | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range) ->
@@ -13718,7 +13718,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct(item1, range) ->
         this.BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct(context, item1, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypar
@@ -13799,13 +13799,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypar
       (context: 'TContext)
       (synTypar: Microsoft.FSharp.Compiler.Ast.SynTypar) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Typar synTypar)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Typar synTypar)::parents
     try
       match synTypar with
       | Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen) ->
         this.BeforeVisitTypar_Typar(context, id, staticReq, isCompGen)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTyparDecl
@@ -13877,13 +13877,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTyparDecl
       (context: 'TContext)
       (synTyparDecl: Microsoft.FSharp.Compiler.Ast.SynTyparDecl) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TyparDecl synTyparDecl)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TyparDecl synTyparDecl)::parents
     try
       match synTyparDecl with
       | Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2) ->
         this.BeforeVisitTyparDecl_TyparDecl(context, attributes, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynType
@@ -14879,7 +14879,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitType
       (context: 'TContext)
       (synType: Microsoft.FSharp.Compiler.Ast.SynType) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Type synType)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.Type synType)::parents
     try
       match synType with
       | Microsoft.FSharp.Compiler.Ast.SynType.LongIdent(item) ->
@@ -14913,7 +14913,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range) ->
         this.BeforeVisitType_StaticConstantNamed(context, item1, item2, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeConstraint
@@ -15600,7 +15600,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeConstraint
       (context: 'TContext)
       (synTypeConstraint: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeConstraint synTypeConstraint)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeConstraint synTypeConstraint)::parents
     try
       match synTypeConstraint with
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range) ->
@@ -15626,7 +15626,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range) ->
         this.BeforeVisitTypeConstraint_WhereTyparIsDelegate(context, genericName, delegateTypes, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefn
@@ -15716,13 +15716,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefn
       (context: 'TContext)
       (synTypeDefn: Microsoft.FSharp.Compiler.Ast.SynTypeDefn) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefn synTypeDefn)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefn synTypeDefn)::parents
     try
       match synTypeDefn with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range) ->
         this.BeforeVisitTypeDefn_TypeDefn(context, item1, item2, members, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefnKind
@@ -16184,7 +16184,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefnKind
       (context: 'TContext)
       (synTypeDefnKind: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnKind synTypeDefnKind)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnKind synTypeDefnKind)::parents
     try
       match synTypeDefnKind with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified ->
@@ -16210,7 +16210,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate(item1, item2) ->
         this.BeforeVisitTypeDefnKind_TyconDelegate(context, item1, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefnRepr
@@ -16396,7 +16396,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefnRepr
       (context: 'TContext)
       (synTypeDefnRepr: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnRepr synTypeDefnRepr)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnRepr synTypeDefnRepr)::parents
     try
       match synTypeDefnRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range) ->
@@ -16406,7 +16406,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception(item) ->
         this.BeforeVisitTypeDefnRepr_Exception(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefnSig
@@ -16496,13 +16496,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefnSig
       (context: 'TContext)
       (synTypeDefnSig: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSig synTypeDefnSig)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSig synTypeDefnSig)::parents
     try
       match synTypeDefnSig with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
         this.BeforeVisitTypeDefnSig_TypeDefnSig(context, item1, item2, memberSigs, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefnSigRepr
@@ -16688,7 +16688,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefnSigRepr
       (context: 'TContext)
       (synTypeDefnSigRepr: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSigRepr synTypeDefnSigRepr)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSigRepr synTypeDefnSigRepr)::parents
     try
       match synTypeDefnSigRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range) ->
@@ -16698,7 +16698,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception(item) ->
         this.BeforeVisitTypeDefnSigRepr_Exception(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynTypeDefnSimpleRepr
@@ -17232,7 +17232,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitTypeDefnSimpleRepr
       (context: 'TContext)
       (synTypeDefnSimpleRepr: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSimpleRepr synTypeDefnSimpleRepr)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.TypeDefnSimpleRepr synTypeDefnSimpleRepr)::parents
     try
       match synTypeDefnSimpleRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range) ->
@@ -17252,7 +17252,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception(item) ->
         this.BeforeVisitTypeDefnSimpleRepr_Exception(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynUnionCase
@@ -17360,13 +17360,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitUnionCase
       (context: 'TContext)
       (synUnionCase: Microsoft.FSharp.Compiler.Ast.SynUnionCase) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.UnionCase synUnionCase)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.UnionCase synUnionCase)::parents
     try
       match synUnionCase with
       | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
         this.BeforeVisitUnionCase_UnionCase(context, attributes, id, caseType, xmlDoc, accessibility, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynUnionCaseType
@@ -17477,7 +17477,7 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitUnionCaseType
       (context: 'TContext)
       (synUnionCaseType: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.UnionCaseType synUnionCaseType)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.UnionCaseType synUnionCaseType)::parents
     try
       match synUnionCaseType with
       | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases) ->
@@ -17485,7 +17485,7 @@ type AstInheritableVisitor<'TContext>() =
       | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType(item) ->
         this.BeforeVisitUnionCaseType_UnionCaseFullType(context, item)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynValData
@@ -17566,13 +17566,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitValData
       (context: 'TContext)
       (synValData: Microsoft.FSharp.Compiler.Ast.SynValData) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValData synValData)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValData synValData)::parents
     try
       match synValData with
       | Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3) ->
         this.BeforeVisitValData_SynValData(context, item1, item2, item3)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynValInfo
@@ -17644,13 +17644,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitValInfo
       (context: 'TContext)
       (synValInfo: Microsoft.FSharp.Compiler.Ast.SynValInfo) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValInfo synValInfo)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValInfo synValInfo)::parents
     try
       match synValInfo with
       | Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2) ->
         this.BeforeVisitValInfo_SynValInfo(context, item1, item2)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynValSig
@@ -17803,13 +17803,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitValSig
       (context: 'TContext)
       (synValSig: Microsoft.FSharp.Compiler.Ast.SynValSig) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValSig synValSig)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValSig synValSig)::parents
     try
       match synValSig with
       | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) ->
         this.BeforeVisitValSig_ValSpfn(context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
   //////////////////////////////////////////////
   // Expression: SynValTyparDecls
@@ -17890,13 +17890,13 @@ type AstInheritableVisitor<'TContext>() =
   member this.VisitValTyparDecls
       (context: 'TContext)
       (synValTyparDecls: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValTyparDecls synValTyparDecls)
+    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.ValTyparDecls synValTyparDecls)::parents
     try
       match synValTyparDecls with
       | Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints) ->
         this.BeforeVisitValTyparDecls_SynValTyparDecls(context, item1, item2, constraints)
     finally
-      parents.Pop() |> ignore
+      parents <- List.tail parents
 
 
 /// <summary>

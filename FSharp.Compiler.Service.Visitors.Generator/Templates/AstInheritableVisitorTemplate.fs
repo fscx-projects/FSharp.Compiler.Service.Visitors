@@ -17,9 +17,9 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitors
 type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
-  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitors.AstElement>()
+  let mutable parents : Microsoft.FSharp.Compiler.Ast.Visitors.AstElement list = []
 
   /// <summary>
   /// Parent nodes.
   /// </summary>
-  member __.Parents = parents |> List.ofSeq
+  member __.Parents = parents

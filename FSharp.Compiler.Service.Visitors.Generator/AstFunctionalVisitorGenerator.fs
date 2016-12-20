@@ -42,7 +42,7 @@ type internal AstFunctionalVisitorGenerator() =
 
   let generateByUnion visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "visit{0}(dlgVisitor, symbolInformation, context, {1})" "_rwh_")
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "visit{0}(dlgVisitor, context, {1})" "_rwh_")
     let isProjected = visited |> Seq.exists (function Projected _ -> true | _ -> false) // Args projected?
     match isProjected with
     | true ->
@@ -76,8 +76,7 @@ type internal AstFunctionalVisitorGenerator() =
       "  /// Expression visitor function: {0}\r\n" +
       "  /// </summary>\r\n" +
       "  /// <typeparam name=\"'TContext\">Custom context type.</typeparam>\r\n" +
-      "  /// <param name=\"dlgVisitor\">Visitor delegated function ((FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr) * FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>\r\n" +
-      "  /// <param name=\"symbolInformation\">Symbol information.</param>\r\n" +
+      "  /// <param name=\"dlgVisitor\">Visitor delegated function (('TContext * SynExpr -> SynExpr) * 'TContext * SynExpr -> SynExpr option).</param>\r\n" +
       "  /// <param name=\"context\">Context instance.</param>\r\n" +
       "  /// <param name=\"target\">Visit target expression.</param>\r\n" +
       "  /// <returns>Visited expression.</returns>\r\n"
@@ -85,8 +84,7 @@ type internal AstFunctionalVisitorGenerator() =
     yield String.Format(
       header +
       "  and {3}visit{1}\r\n" +
-      "     (dlgVisitor: (Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option,\r\n" +
-      "      symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
+      "     (dlgVisitor: ('TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option,\r\n" +
       "      context: 'TContext,\r\n" +
       "      target: {2}) =\r\n" +
       "    match target with\r\n",
@@ -99,12 +97,11 @@ type internal AstFunctionalVisitorGenerator() =
       yield String.Format(
         header +
         "  and visitExpr\r\n" +
-        "     (dlgVisitor: (Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option,\r\n" +
-        "      symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
+        "     (dlgVisitor: ('TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option,\r\n" +
         "      context: 'TContext,\r\n" +
         "      target: Microsoft.FSharp.Compiler.Ast.SynExpr) =\r\n" +
-        "    match dlgVisitor((fun (si, c, t) -> visitExpr(dlgVisitor, si, c, t)), symbolInformation, context, target) with\r\n" +
+        "    match dlgVisitor((fun (c, t) -> visitExpr(dlgVisitor, c, t)), context, target) with\r\n" +
         "    | Some expr -> expr\r\n" +
-        "    | None -> __visitExpr(dlgVisitor, symbolInformation, context, target)\r\n",
+        "    | None -> __visitExpr(dlgVisitor, context, target)\r\n",
         "SynExpr")
   |]

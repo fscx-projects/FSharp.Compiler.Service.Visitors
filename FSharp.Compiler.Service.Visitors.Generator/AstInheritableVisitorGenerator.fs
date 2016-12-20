@@ -148,7 +148,7 @@ type internal AstInheritableVisitorGenerator() =
       "  member this.Visit{1}\r\n" +
       "      (context: 'TContext)\r\n" +
       "      ({2}: {3}) =\r\n" +
-      "    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.{1} {2})\r\n" +
+      "    parents <- (Microsoft.FSharp.Compiler.Ast.Visitors.AstElement.{1} {2})::parents\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
       SecurityElement.Escape unionType.Name,
@@ -159,7 +159,7 @@ type internal AstInheritableVisitorGenerator() =
     yield! unionCases |> Seq.map (generateMatcher unionType)
     yield
       "    finally\r\n" +
-      "      parents.Pop() |> ignore\r\n" +
+      "      parents <- List.tail parents\r\n" +
       "\r\n"
   |]
   
