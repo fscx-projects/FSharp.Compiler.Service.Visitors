@@ -14,29 +14,20 @@
 
 ## What is this?
 
-* Can apply visitor pattern with minimum coding for FSharp.Compiler.Service's untyped ASTs.
-* FSharp.Compiler.Service.Visitors is part of fscx-project.
+* We can apply visitor pattern with minimum coding for FSharp.Compiler.Service's untyped ASTs.
 * Contains two visitors:
-  * "Functional visitor types."
-  * "Inheritable (Legacy) visitor base class."
-
-## Still under constructions...
-
-* Moving implements from FSharp.Expandable.Compiler.Core.
-
-## Guide for filter background
-
-* TODO: Need more informations...
+  * "Functional visitor types. (FP based)"
+  * "Inheritable (Legacy) visitor base class. (OOP based)"
+* FSharp.Compiler.Service.Visitors is part of fscx-project.
 
 ### Functional visitor implementation:
 
-* "Functional filter" is using for functional visitor patterns with F#'s AST ([FSharp.Compiler.Services](http://fsharp.github.io/FSharp.Compiler.Service/) untyped AST).
+* "Functional visitor" is using for functional visitor patterns with F#'s AST ([FSharp.Compiler.Services](http://fsharp.github.io/FSharp.Compiler.Service/) untyped AST).
   
 ```fsharp
 // Functional visitor pattern (Not use custom context):
 let outerVisitor
-   (defaultVisitor: (FSharpCheckFileResults * NoContext * SynExpr -> SynExpr),
-    symbolInformation: FSharpCheckFileResults,
+   (defaultVisitor: (NoContext * SynExpr -> SynExpr),
     context: NoContext,  // (Non custom context type)
     expr: SynExpr) : SynExpr option =
 
@@ -61,7 +52,7 @@ type InsertLoggingVisitor() =
   
 ### Inheritable visitor implementation:
 
-* "Inheritable filter" is using for traditional visitor patterns with F#'s AST.
+* "Inheritable visitor" is using for traditional visitor patterns with F#'s AST.
   * If you are implemented visitor class inherit from "AstInheritableVisitor" class.
   * "AstInheritableVisitor" are abstract classes, generic version and non-generic version.
   * Generic argument is "Context type". Context is depending any information holds for your implementations. Implicit applied "NoContext" type for non-generic version.
@@ -99,6 +90,10 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.7.1:
+  * Manage parent nodes using list instead stack.
+  * Remove FSharpCheckFileResults args.
+  * Update readme.
 * 0.6.3:
   * Reduced context type constraints.
 * 0.6.2:
