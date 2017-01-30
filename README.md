@@ -90,6 +90,8 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.7.2:
+  * Pinned version 1.4.2 for System.Reflection.Metadata (non-beta)
 * 0.7.1:
   * Manage parent nodes using list instead stack.
   * Remove FSharpCheckFileResults args.
