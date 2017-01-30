@@ -18,6 +18,8 @@
     <dependencies>
       <group>
         <dependency id="FSharp.Core" version="4.0.0.1" />
+        <!-- avoid beta package for System.Reflection.Metadata -->
+        <dependency id="System.Reflection.Metadata" version="1.4.1" />
         <dependency id="FSharp.Compiler.Service" version="6.0.2" />
       </group>
     </dependencies>
