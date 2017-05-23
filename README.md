@@ -90,6 +90,8 @@ type InsertLoggingVisitor() =
 - [bleis-tift](https://github.com/bleis-tift) [twitter](https://twitter.com/bleis)
 
 ## History
+* 0.9.1:
+  * FCS upgraded to 12.0.8.
 * 0.7.3:
   * Fixed System.Collections.Immutable version.
 * 0.7.2:
