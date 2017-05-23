@@ -26,10 +26,13 @@ open System.Reflection
 open System.Runtime.InteropServices
 
 [<assembly: AssemblyTitle("F# Compiler service's common visitors library")>]
-[<assembly: AssemblyDescription("F# Compiler service's common visitors library")>]
+[<assembly: AssemblyDescription("F# Compiler service's common visitors library (.NET 4.5)")>]
 [<assembly: AssemblyProduct("Expandable F# compiler project")>]
 [<assembly: AssemblyCopyright("Author: Kouji Matsui, bleis-tift")>]
 [<assembly: AssemblyCompany("https://github.com/fscx-projects")>]
+
+[<assembly: AssemblyVersion("0.9.1.0")>]
+[<assembly: AssemblyFileVersion("0.9.1.0")>]
 
 [<assembly: ComVisible(false)>]
 [<assembly: Guid("00cabf76-5950-4075-ac1a-89006c7d6bbb")>]

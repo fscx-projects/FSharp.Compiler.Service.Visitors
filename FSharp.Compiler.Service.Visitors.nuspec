@@ -17,11 +17,11 @@
     <tags>F# compiler service fcs visitor pattern</tags>
     <dependencies>
       <group>
-        <dependency id="FSharp.Core" version="4.0.0.1" />
+        <dependency id="FSharp.Core" version="4.1.17" />
         <!-- avoid beta package for System.Reflection.Metadata -->
         <dependency id="System.Reflection.Metadata" version="1.4.2" />
         <dependency id="System.Collections.Immutable" version="1.3.1" />
-        <dependency id="FSharp.Compiler.Service" version="6.0.2" />
+        <dependency id="FSharp.Compiler.Service" version="12.0.8" />
       </group>
     </dependencies>
   </metadata>
@@ -29,5 +29,8 @@
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.dll" target="lib/net45" />
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.xml" target="lib/net45" />
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.pdb" target="lib/net45" />
+    <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.dll" target="lib/netstandard1.6" />
+    <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.xml" target="lib/netstandard1.6" />
+    <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.pdb" target="lib/netstandard1.6" />
   </files>
 </package>

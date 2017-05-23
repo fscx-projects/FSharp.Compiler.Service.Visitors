@@ -53,12 +53,24 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="AstCommon.fs" />
-    <Compile Include="AstElement.fs" />
-    <Compile Include="AstRecordCons.fs" />
-    <Compile Include="AstUnionCons.fs" />
-    <Compile Include="AstFunctionalVisitor.fs" />
-    <Compile Include="AstInheritableVisitor.fs" />
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstCommon.fs">
+      <Link>AstCommon.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstElement.fs">
+      <Link>AstElement.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstRecordCons.fs">
+      <Link>AstRecordCons.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstUnionCons.fs">
+      <Link>AstUnionCons.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstFunctionalVisitor.fs">
+      <Link>AstFunctionalVisitor.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstInheritableVisitor.fs">
+      <Link>AstInheritableVisitor.fs</Link>
+    </Compile>
     <Content Include="packages.config" />
     <Content Include="App.config" />
   </ItemGroup>
@@ -84,13 +96,6 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <Import Project="..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets" Condition="Exists('..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
