@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 20 Dec 2016 01:54:19 GMT
+// Generated: Tue, 23 May 2017 08:29:34 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitors
@@ -82,21 +82,21 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule
-        (moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule
         ((visitModuleOrNamespace(dlgVisitor, context, item)))
-    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, item4, xmlDoc, item6, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment
         (longId,
          item2,
          item3,
-         moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         item6 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          range)
 
   /// <summary>
@@ -112,14 +112,14 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(fileName, isScript, qualifiedNameOfFile, scopedPragmas, hashDirectives, modules, item7) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput
-        (filename,
+        (fileName,
          isScript,
-         item3,
-         item4,
-         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective(dlgVisitor, context, v))),
-         item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespace(dlgVisitor, context, v))),
+         qualifiedNameOfFile,
+         scopedPragmas,
+         hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective(dlgVisitor, context, v))),
+         modules |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespace(dlgVisitor, context, v))),
          item7)
 
   /// <summary>
@@ -173,21 +173,21 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule
-        (moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule
         ((visitModuleOrNamespaceSig(dlgVisitor, context, item)))
-    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, item4, xmlDoc, item6, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment
         (longId,
          item2,
          item3,
-         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         item6 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          range)
 
   /// <summary>
@@ -203,13 +203,13 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
+    | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(fileName, qualifiedNameOfFile, scopedPragmas, hashDirectives, modules) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput
-        (filename,
-         item2,
-         item3,
-         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective(dlgVisitor, context, v))),
-         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespaceSig(dlgVisitor, context, v))))
+        (fileName,
+         qualifiedNameOfFile,
+         scopedPragmas,
+         hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective(dlgVisitor, context, v))),
+         modules |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespaceSig(dlgVisitor, context, v))))
 
   /// <summary>
   /// Expression visitor function: SynAccess
@@ -241,11 +241,11 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynArgInfo) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id) ->
+    | Microsoft.FSharp.Compiler.Ast.SynArgInfo(item1, optional, item3) ->
       Microsoft.FSharp.Compiler.Ast.SynArgInfo
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          optional,
-         id)
+         item3)
 
   /// <summary>
   /// Expression visitor function: SynBinding
@@ -260,20 +260,20 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynBinding) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
+    | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(accessibility, kind, mustInline, isMutable, attrs, xmlDoc, valData, headPat, returnInfo, expr, range, seqPoint) ->
       Microsoft.FSharp.Compiler.Ast.SynBinding.Binding
-        (access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
-         (visitBindingKind(dlgVisitor, context, bindingKind)),
+        (accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         (visitBindingKind(dlgVisitor, context, kind)),
          mustInline,
          isMutable,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         attrs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          xmlDoc,
-         (visitValData(dlgVisitor, context, item7)),
+         (visitValData(dlgVisitor, context, valData)),
          (visitPat(dlgVisitor, context, headPat)),
-         item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitBindingReturnInfo(dlgVisitor, context, v))),
+         returnInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (visitBindingReturnInfo(dlgVisitor, context, v))),
          (visitExpr(dlgVisitor, context, expr)),
-         lhsRange,
-         spBind)
+         range,
+         seqPoint)
 
   /// <summary>
   /// Expression visitor function: SynBindingKind
@@ -324,15 +324,15 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynComponentInfo) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attribs, typeParams, constraints, longId, xmlDoc, preferPostfix, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+        (attribs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTyparDecl(dlgVisitor, context, v))),
          constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint(dlgVisitor, context, v))),
-         item4,
+         longId,
          xmlDoc,
          preferPostfix,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -407,12 +407,12 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynEnumCase) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attrs, ident, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         id,
+        (attrs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         ident,
          (visitConst(dlgVisitor, context, item3)),
-         xmlDoc,
+         item4,
          range)
 
   /// <summary>
@@ -428,10 +428,10 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefn
-        ((visitExceptionDefnRepr(dlgVisitor, context, exnRepr)),
-         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v))),
+        ((visitExceptionDefnRepr(dlgVisitor, context, item1)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -447,13 +447,13 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, item2, longId, xmlDoc, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr
         (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         (visitUnionCase(dlgVisitor, context, case)),
+         (visitUnionCase(dlgVisitor, context, item2)),
          longId,
          xmlDoc,
-         accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -469,10 +469,10 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionSig) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionSig
-        ((visitExceptionDefnRepr(dlgVisitor, context, exnRepr)),
-         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig(dlgVisitor, context, v))),
+        ((visitExceptionDefnRepr(dlgVisitor, context, item1)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -505,13 +505,18 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynExpr.Const
         ((visitConst(dlgVisitor, context, constant)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Typed
         ((visitExpr(dlgVisitor, context, expr)),
-         (visitType(dlgVisitor, context, typeSig)),
+         (visitType(dlgVisitor, context, typeName)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple(exprs, commaRanges, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple
+        (exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr(dlgVisitor, context, v))),
+         commaRanges,
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.StructTuple(exprs, commaRanges, range) ->
+      Microsoft.FSharp.Compiler.Ast.SynExpr.StructTuple
         (exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr(dlgVisitor, context, v))),
          commaRanges,
          range)
@@ -532,42 +537,42 @@ module AstFunctionalVisitor =
          (visitType(dlgVisitor, context, typeName)),
          (visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOpt, bindings, extraImpls, newPos, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOptions, bindings, extraImpls, newExprRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr
         ((visitType(dlgVisitor, context, objType)),
-         argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr(dlgVisitor, context, v0)), v1)),
+         argOptions |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr(dlgVisitor, context, v0)), v1)),
          bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
          extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitInterfaceImpl(dlgVisitor, context, v))),
-         newPos,
+         newExprRange,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.While(spWhile, whileBody, doBody, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.While(whileSeqPoint, whileExpr, doExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.While
-        (spWhile,
-         (visitExpr(dlgVisitor, context, whileBody)),
-         (visitExpr(dlgVisitor, context, doBody)),
+        (whileSeqPoint,
+         (visitExpr(dlgVisitor, context, whileExpr)),
+         (visitExpr(dlgVisitor, context, doExpr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.For(spFor, id, idBody, item4, toBody, doBody, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.For(forSeqPoint, ident, identBody, item4, toBody, doBody, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.For
-        (spFor,
-         id,
-         (visitExpr(dlgVisitor, context, idBody)),
+        (forSeqPoint,
+         ident,
+         (visitExpr(dlgVisitor, context, identBody)),
          item4,
          (visitExpr(dlgVisitor, context, toBody)),
          (visitExpr(dlgVisitor, context, doBody)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(forSeqPoint, seqExprOnly, isFromSource, pat, enumExpr, bodyExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach
-        (spFor,
+        (forSeqPoint,
          seqExprOnly,
          isFromSource,
-         (visitPat(dlgVisitor, context, pattern)),
+         (visitPat(dlgVisitor, context, pat)),
          (visitExpr(dlgVisitor, context, enumExpr)),
          (visitExpr(dlgVisitor, context, bodyExpr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, elements, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr
         (isList,
-         (visitExpr(dlgVisitor, context, elements)),
+         (visitExpr(dlgVisitor, context, expr)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr(isArrayOrList, isNotNakedRefCell, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr
@@ -582,19 +587,19 @@ module AstFunctionalVisitor =
          (visitSimplePats(dlgVisitor, context, args)),
          (visitExpr(dlgVisitor, context, body)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(item1, item2, clauses, spBind, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(isExnMatch, item2, item3, matchSeqPoint, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda
-        (item1,
+        (isExnMatch,
          item2,
-         clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause(dlgVisitor, context, v))),
-         spBind,
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause(dlgVisitor, context, v))),
+         matchSeqPoint,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Match(spBind, matchExpr, clauses, isCexprExceptionMatch, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Match(matchSeqPoint, expr, clauses, isExnMatch, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Match
-        (spBind,
-         (visitExpr(dlgVisitor, context, matchExpr)),
+        (matchSeqPoint,
+         (visitExpr(dlgVisitor, context, expr)),
          clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause(dlgVisitor, context, v))),
-         isCexprExceptionMatch,
+         isExnMatch,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Do(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Do
@@ -604,114 +609,114 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynExpr.Assert
         ((visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.App(item1, isInfix, funcExpr, argExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.App
-        (exprAtomicFlag,
+        (item1,
          isInfix,
          (visitExpr(dlgVisitor, context, funcExpr)),
          (visitExpr(dlgVisitor, context, argExpr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, lESSrange, typeNames, commaRanges, gREATERrange, typeArgsRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp
         ((visitExpr(dlgVisitor, context, expr)),
-         leftAngleRange,
+         lESSrange,
          typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          commaRanges,
-         rightAngleRange,
-         typeArgs,
+         gREATERrange,
+         typeArgsRange,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(isRecursive, isUse, bindings, exprBody, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(isRecursive, isUse, bindings, body, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse
         (isRecursive,
          isUse,
          bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
-         (visitExpr(dlgVisitor, context, exprBody)),
+         (visitExpr(dlgVisitor, context, body)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, item2, item3, item4, range, spTry, spWith) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, tryRange, withCases, withRange, range, trySeqPoint, withSeqPoint) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith
         ((visitExpr(dlgVisitor, context, tryExpr)),
-         item2,
-         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause(dlgVisitor, context, v))),
-         item4,
+         tryRange,
+         withCases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause(dlgVisitor, context, v))),
+         withRange,
          range,
-         spTry,
-         spWith)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, spTry, spFinally) ->
+         trySeqPoint,
+         withSeqPoint)
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, trySeqPoint, finallySeqPoint) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally
         ((visitExpr(dlgVisitor, context, tryExpr)),
          (visitExpr(dlgVisitor, context, finallyExpr)),
          range,
-         spTry,
-         spFinally)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(expr, range) ->
+         trySeqPoint,
+         finallySeqPoint)
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy
-        ((visitExpr(dlgVisitor, context, expr)),
+        ((visitExpr(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(spSeq, isTrueSeq, expr1, expr2, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(seqPoint, isTrueSeq, expr1, expr2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential
-        (spSeq,
+        (seqPoint,
          isTrueSeq,
          (visitExpr(dlgVisitor, context, expr1)),
          (visitExpr(dlgVisitor, context, expr2)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(ifExpr, thenExpr, elseExpr, spIfToThen, isFromErrorRecovery, ifToThenRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse
-        ((visitExpr(dlgVisitor, context, exprGuard)),
-         (visitExpr(dlgVisitor, context, exprThen)),
-         optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr(dlgVisitor, context, v))),
+        ((visitExpr(dlgVisitor, context, ifExpr)),
+         (visitExpr(dlgVisitor, context, thenExpr)),
+         elseExpr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr(dlgVisitor, context, v))),
          spIfToThen,
          isFromErrorRecovery,
-         ifToThen,
+         ifToThenRange,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Ident _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent(isOptional, longIdent, altNameRefCell, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent(isOptional, longDotId, altNameRefCell, range) ->
       use _rwh_ = new RefWrapperHolder()
       Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent
         (isOptional,
-         longIdent,
+         longDotId,
          altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitSimplePatAlternativeIdInfo(dlgVisitor, context, v.Value))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(dotId, expr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(longDotId, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet
-        (dotId,
+        (longDotId,
          (visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, dotId, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, longDotId, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet
         ((visitExpr(dlgVisitor, context, expr)),
          rangeOfDot,
-         dotId,
+         longDotId,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(expr, dotId, exprValue, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(item1, longDotId, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet
-        ((visitExpr(dlgVisitor, context, expr)),
-         dotId,
-         (visitExpr(dlgVisitor, context, exprValue)),
+        ((visitExpr(dlgVisitor, context, item1)),
+         longDotId,
+         (visitExpr(dlgVisitor, context, item3)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(expr, indexExprs, item3, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet
-        ((visitExpr(dlgVisitor, context, expr)),
-         indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg(dlgVisitor, context, v))),
+        ((visitExpr(dlgVisitor, context, item1)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg(dlgVisitor, context, v))),
          item3,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, leftOfSetRange, dotRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet
         ((visitExpr(dlgVisitor, context, objectExpr)),
          indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg(dlgVisitor, context, v))),
          (visitExpr(dlgVisitor, context, valueExpr)),
-         rangeOfLeftOfSet,
-         rangeOfDot,
+         leftOfSetRange,
+         dotRange,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(item1, item2, item3, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(longDotId, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet
-        (item1,
+        (longDotId,
          (visitExpr(dlgVisitor, context, item2)),
          (visitExpr(dlgVisitor, context, item3)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, item2, item3, item4, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, longDotId, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet
         ((visitExpr(dlgVisitor, context, item1)),
-         item2,
+         longDotId,
          (visitExpr(dlgVisitor, context, item3)),
          (visitExpr(dlgVisitor, context, item4)),
          range)
@@ -720,10 +725,10 @@ module AstFunctionalVisitor =
         ((visitExpr(dlgVisitor, context, expr)),
          (visitType(dlgVisitor, context, typeName)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast
         ((visitExpr(dlgVisitor, context, expr)),
-         (visitType(dlgVisitor, context, typeSig)),
+         (visitType(dlgVisitor, context, typeName)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast(expr, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast
@@ -739,9 +744,9 @@ module AstFunctionalVisitor =
         ((visitExpr(dlgVisitor, context, expr)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Null _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(item1, item2, item3, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(isByref, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf
-        (item1,
+        (isByref,
          (visitExpr(dlgVisitor, context, item2)),
          item3,
          range)
@@ -751,10 +756,10 @@ module AstFunctionalVisitor =
          (visitMemberSig(dlgVisitor, context, item2)),
          (visitExpr(dlgVisitor, context, item3)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, inPos, item3, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn
         ((visitExpr(dlgVisitor, context, item1)),
-         inPos,
+         item2,
          (visitExpr(dlgVisitor, context, item3)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ImplicitZero _ -> target
@@ -768,14 +773,14 @@ module AstFunctionalVisitor =
         (item1,
          (visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(bindSeqPoint, isUse, isFromSource, item4, item5, item6, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang
-        (spBind,
+        (bindSeqPoint,
          isUse,
          isFromSource,
-         (visitPat(dlgVisitor, context, pattern)),
-         (visitExpr(dlgVisitor, context, rhsExpr)),
-         (visitExpr(dlgVisitor, context, bodyExpr)),
+         (visitPat(dlgVisitor, context, item4)),
+         (visitExpr(dlgVisitor, context, item5)),
+         (visitExpr(dlgVisitor, context, item6)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang
@@ -794,9 +799,9 @@ module AstFunctionalVisitor =
          (visitExpr(dlgVisitor, context, item2)),
          (visitExpr(dlgVisitor, context, item3)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(item1, longId, item3, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(expr, longId, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet
-        ((visitExpr(dlgVisitor, context, item1)),
+        ((visitExpr(dlgVisitor, context, expr)),
          longId,
          item3,
          range)
@@ -812,14 +817,14 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError
         ((visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(expr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot
+        ((visitExpr(dlgVisitor, context, item1)),
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(expr, range) ->
+      Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed
         ((visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed
-        ((visitExpr(dlgVisitor, context, item1)),
-         item2)
 
   /// <summary>
   /// Expression visitor function: SynExpr
@@ -850,15 +855,15 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynField) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynField.Field(attrs, isStatic, item3, item4, item5, xmlDoc, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynField.Field
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+        (attrs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          isStatic,
-         id,
-         (visitType(dlgVisitor, context, typeName)),
+         item3,
+         (visitType(dlgVisitor, context, item4)),
          item5,
          xmlDoc,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -895,10 +900,10 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl
         ((visitType(dlgVisitor, context, item1)),
-         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -914,13 +919,13 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMatchClause) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, item5) ->
       Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause
         ((visitPat(dlgVisitor, context, item1)),
          item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr(dlgVisitor, context, v))),
          (visitExpr(dlgVisitor, context, item3)),
          range,
-         spTarget)
+         item5)
 
   /// <summary>
   /// Expression visitor function: SynMeasure
@@ -993,48 +998,48 @@ module AstFunctionalVisitor =
          (visitExpr(dlgVisitor, context, inheritArgs)),
          inheritAlias,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(bindings, isStatic, isRecursive, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(item1, isStatic, isRecursive, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings
-        (bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
          isStatic,
          isRecursive,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(valSig, memberFlags, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot
-        ((visitValSig(dlgVisitor, context, valSig)),
-         memberFlags,
+        ((visitValSig(dlgVisitor, context, item1)),
+         item2,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(typeName, interfaceMembers, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface
-        ((visitType(dlgVisitor, context, typeName)),
-         interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v)))),
+        ((visitType(dlgVisitor, context, item1)),
+         item2 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v)))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(typeName, id, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit
-        ((visitType(dlgVisitor, context, typeName)),
-         id,
+        ((visitType(dlgVisitor, context, item1)),
+         item2,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(field, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField
-        ((visitField(dlgVisitor, context, field)),
+        ((visitField(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessiblity, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType
         ((visitTypeDefn(dlgVisitor, context, typeDefn)),
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attribs, isStatic, ident, typeOpt, propKind, memberFlags, xmlDoc, accessiblity, synExpr, getSetRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+        (attribs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          isStatic,
-         id,
-         tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitType(dlgVisitor, context, v))),
+         ident,
+         typeOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitType(dlgVisitor, context, v))),
          propKind,
          memberFlags,
          xmlDoc,
-         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
-         (visitExpr(dlgVisitor, context, expr)),
-         getSetPos,
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         (visitExpr(dlgVisitor, context, synExpr)),
+         getSetRange,
          range)
 
   /// <summary>
@@ -1050,10 +1055,10 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMemberSig) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member
         ((visitValSig(dlgVisitor, context, item1)),
-         memberFlags,
+         item2,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface(typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface
@@ -1063,13 +1068,13 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit
         ((visitType(dlgVisitor, context, typeName)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(field, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField
-        ((visitField(dlgVisitor, context, field)),
+        ((visitField(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType
-        ((visitTypeDefnSig(dlgVisitor, context, typeDefnSig)),
+        ((visitTypeDefnSig(dlgVisitor, context, item1)),
          range)
 
   /// <summary>
@@ -1086,40 +1091,40 @@ module AstFunctionalVisitor =
       target: Microsoft.FSharp.Compiler.Ast.SynModuleDecl) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRecursive, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule
         ((visitComponentInfo(dlgVisitor, context, item1)),
-         isRec,
+         isRecursive,
          item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
          item4,
-         item5)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, item3) ->
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let
         (item1,
          item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding(dlgVisitor, context, v))),
-         item3)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, item3) ->
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr
         (item1,
          (visitExpr(dlgVisitor, context, item2)),
-         item3)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, item2) ->
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types
         (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefn(dlgVisitor, context, v))),
-         item2)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, item2) ->
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception
         ((visitExceptionDefn(dlgVisitor, context, item1)),
-         item2)
+         range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes
         (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         item2)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2) ->
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective
         ((visitHashDirective(dlgVisitor, context, item1)),
-         item2)
+         range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment
         ((visitModuleOrNamespace(dlgVisitor, context, item)))
@@ -1137,15 +1142,15 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(longId, isRecursive, isModule, decls, xmlDoc, attribs, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace
-        (id,
-         isRec,
+        (longId,
+         isRecursive,
          isModule,
          decls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl(dlgVisitor, context, v))),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         attribs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -1161,15 +1166,15 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(longId, isRecursive, isModule, item4, xmlDoc, attribs, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig
-        (id,
-         isRec,
+        (longId,
+         isRecursive,
          isModule,
          item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         attribs |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -1186,28 +1191,28 @@ module AstFunctionalVisitor =
       target: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRecursive, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule
         ((visitComponentInfo(dlgVisitor, context, item1)),
-         isRec,
-         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
+         isRecursive,
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(valSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val
-        ((visitValSig(dlgVisitor, context, valSig)),
+        ((visitValSig(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(typeDefSigs, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types
-        (typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefnSig(dlgVisitor, context, v))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefnSig(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(exnSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception
-        ((visitExceptionSig(dlgVisitor, context, exnSig)),
+        ((visitExceptionSig(dlgVisitor, context, item1)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective
-        ((visitHashDirective(dlgVisitor, context, hashDirective)),
+        ((visitHashDirective(dlgVisitor, context, item1)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment
@@ -1226,27 +1231,27 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynPat) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.Const(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Const
-        ((visitConst(dlgVisitor, context, constant)),
+        ((visitConst(dlgVisitor, context, item1)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Wild _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, id, isThisVar, accessiblity, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, item2, isSelfIdentifier, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Named
         ((visitPat(dlgVisitor, context, item1)),
-         id,
-         isThisVar,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         item2,
+         isSelfIdentifier,
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, typeName, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Typed
         ((visitPat(dlgVisitor, context, item1)),
-         (visitType(dlgVisitor, context, typeName)),
+         (visitType(dlgVisitor, context, item2)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Attrib
         ((visitPat(dlgVisitor, context, item1)),
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Or(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Or
@@ -1257,16 +1262,20 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynPat.Ands
         (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(dotId, item2, item3, item4, item5, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(longDotId, item2, item3, item4, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent
-        (dotId,
+        (longDotId,
          item2,
          item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitValTyparDecls(dlgVisitor, context, v))),
          (visitConstructorArgs(dlgVisitor, context, item4)),
-         item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Tuple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Tuple
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat(dlgVisitor, context, v))),
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynPat.StructTuple(item1, range) ->
+      Microsoft.FSharp.Compiler.Ast.SynPat.StructTuple
         (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Paren(item1, range) ->
@@ -1278,27 +1287,27 @@ module AstFunctionalVisitor =
         (item1,
          item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynPat.Record(fields, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.Record(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Record
-        (fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat(dlgVisitor, context, v1)))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat(dlgVisitor, context, v1)))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Null _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(typeName, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.IsInst
-        ((visitType(dlgVisitor, context, typeName)),
+        ((visitType(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(expr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr
-        ((visitExpr(dlgVisitor, context, expr)),
+        ((visitExpr(dlgVisitor, context, item1)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accesiblity, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember
         (item1,
          item2,
          item3,
-         accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError
@@ -1364,15 +1373,15 @@ module AstFunctionalVisitor =
          isThisVar,
          isOptArg,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, typeName, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed
         ((visitSimplePat(dlgVisitor, context, item1)),
-         (visitType(dlgVisitor, context, typeName)),
+         (visitType(dlgVisitor, context, item2)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib
         ((visitSimplePat(dlgVisitor, context, item1)),
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
          range)
 
   /// <summary>
@@ -1484,27 +1493,31 @@ module AstFunctionalVisitor =
       target: Microsoft.FSharp.Compiler.Ast.SynType) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynType.LongIdent _ -> target
-    | Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, lESSrange, typeArgs, commaRanges, gREATERrange, isPostfix, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.App
         ((visitType(dlgVisitor, context, typeName)),
-         leftAngleRange,
+         lESSrange,
          typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          commaRanges,
-         rightAngleRange,
+         gREATERrange,
          isPostfix,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, longDotId, lESSRange, typeArgs, commaRanges, gREATERrange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp
         ((visitType(dlgVisitor, context, typeName)),
-         dotId,
-         leftAngleRange,
-         genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
+         longDotId,
+         lESSRange,
+         typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          commaRanges,
-         rightAngleRange,
+         gREATERrange,
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.Tuple(item1, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.Tuple(typeNames, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Tuple
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitType(dlgVisitor, context, v1)))),
+        (typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitType(dlgVisitor, context, v1)))),
+         range)
+    | Microsoft.FSharp.Compiler.Ast.SynType.StructTuple(typeNames, range) ->
+      Microsoft.FSharp.Compiler.Ast.SynType.StructTuple
+        (typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitType(dlgVisitor, context, v1)))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Array(item1, elementType, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Array
@@ -1516,9 +1529,9 @@ module AstFunctionalVisitor =
         ((visitType(dlgVisitor, context, argType)),
          (visitType(dlgVisitor, context, returnType)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.Var(item1, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.Var(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Var
-        ((visitTypar(dlgVisitor, context, item1)),
+        ((visitTypar(dlgVisitor, context, genericName)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Anon _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints(typeName, constraints, range) ->
@@ -1526,18 +1539,18 @@ module AstFunctionalVisitor =
         ((visitType(dlgVisitor, context, typeName)),
          constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(typeName, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint
-        ((visitType(dlgVisitor, context, typeName)),
+        ((visitType(dlgVisitor, context, item1)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(typeName, item2, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(dividendType, divisorType, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide
-        ((visitType(dlgVisitor, context, typeName)),
-         (visitType(dlgVisitor, context, item2)),
+        ((visitType(dlgVisitor, context, dividendType)),
+         (visitType(dlgVisitor, context, divisorType)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(typeName, item2, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(measureType, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower
-        ((visitType(dlgVisitor, context, typeName)),
+        ((visitType(dlgVisitor, context, measureType)),
          (visitRationalConst(dlgVisitor, context, item2)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant(constant, range) ->
@@ -1548,9 +1561,9 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr
         ((visitExpr(dlgVisitor, context, expr)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(expr, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed
-        ((visitType(dlgVisitor, context, item1)),
+        ((visitType(dlgVisitor, context, expr)),
          (visitType(dlgVisitor, context, item2)),
          range)
 
@@ -1591,30 +1604,30 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable
         ((visitTypar(dlgVisitor, context, genericName)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType
         ((visitTypar(dlgVisitor, context, genericName)),
-         (visitType(dlgVisitor, context, typeSig)),
+         (visitType(dlgVisitor, context, typeName)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeSig, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType
         ((visitTypar(dlgVisitor, context, genericName)),
-         (visitType(dlgVisitor, context, typeSig)),
+         (visitType(dlgVisitor, context, typeName)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember(genericNames, memberSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember
-        (genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypar(dlgVisitor, context, v))),
+        (genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          (visitMemberSig(dlgVisitor, context, memberSig)),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, enumTypes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum
         ((visitTypar(dlgVisitor, context, genericName)),
-         enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate
         ((visitTypar(dlgVisitor, context, genericName)),
-         delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -1678,10 +1691,10 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel
         ((visitTypeDefnKind(dlgVisitor, context, item1)),
-         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v))),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple
@@ -1704,11 +1717,11 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig
         ((visitComponentInfo(dlgVisitor, context, item1)),
          (visitTypeDefnSigRepr(dlgVisitor, context, item2)),
-         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig(dlgVisitor, context, v))),
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig(dlgVisitor, context, v))),
          range)
 
   /// <summary>
@@ -1750,19 +1763,19 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessibility, unionCases, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union
-        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
-         cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitUnionCase(dlgVisitor, context, v))),
+        (accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         unionCases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitUnionCase(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(cases, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum
-        (cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitEnumCase(dlgVisitor, context, v))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitEnumCase(dlgVisitor, context, v))),
          range)
-    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessiblity, fields, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessibility, recordFields, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record
-        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
-         fields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField(dlgVisitor, context, v))),
+        (accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField(dlgVisitor, context, v))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General(item1, item2, item3, item4, item5, item6, item7, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General
@@ -1798,12 +1811,12 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynUnionCase) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(item1, ident, item3, item4, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         id,
-         (visitUnionCaseType(dlgVisitor, context, caseType)),
-         xmlDoc,
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         ident,
+         (visitUnionCaseType(dlgVisitor, context, item3)),
+         item4,
          accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
          range)
 
@@ -1877,18 +1890,18 @@ module AstFunctionalVisitor =
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynValSig) =
     match target with
-    | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) ->
+    | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(synAttributes, ident, explicitValDecls, synType, arity, isInline, isMutable, xmlDoc, accessibility, synExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
-         id,
-         (visitValTyparDecls(dlgVisitor, context, typeParams)),
-         (visitType(dlgVisitor, context, typeName)),
-         (visitValInfo(dlgVisitor, context, valInfo)),
-         item6,
+        (synAttributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute(v.TypeName, (visitExpr(dlgVisitor, context, v.ArgExpr)), v.Target, v.AppliesToGetterAndSetter, v.Range)),
+         ident,
+         (visitValTyparDecls(dlgVisitor, context, explicitValDecls)),
+         (visitType(dlgVisitor, context, synType)),
+         (visitValInfo(dlgVisitor, context, arity)),
+         isInline,
          isMutable,
          xmlDoc,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
-         expr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr(dlgVisitor, context, v))),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess(dlgVisitor, context, v))),
+         synExpr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr(dlgVisitor, context, v))),
          range)
 
   /// <summary>

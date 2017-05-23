@@ -34,10 +34,10 @@ type internal AstRecordConsGenerator() =
   inherit GeneratorBase()
   
   let generateByType (t: Type) =
-    let tn = (Utilities.formatTypeStrictShortName t) + "."
+    let tn = Utilities.formatTypeStrictShortName t
     let fields = FSharpType.GetRecordFields t
     let args = fields |> Array.map Utilities.formatDeclaration
-    let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
+    let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", field.Name, Utilities.formatFieldName field))
     let paramLists =
       fields
       |> Seq.map (fun field -> String.Format("/// <param name=\"{0}\">{1}</param>", Utilities.formatFieldName field, SecurityElement.Escape (Utilities.formatFieldTypeFullName field)))
@@ -46,15 +46,17 @@ type internal AstRecordConsGenerator() =
       "  /// <summary>\r\n" +
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
-      "  {4}\r\n" +
+      "  {5}\r\n" +
       "  /// <returns>Constructed record.</returns>\r\n" +
       "  let gen{1}\r\n" +
-      "     ({2}) =\r\n" +
-      "    {{ {3} }}\r\n" +
+      "     ({2})\r\n" +
+      "     : {3} =\r\n" +
+      "    {{ {4} }}\r\n" +
       "\r\n",
       SecurityElement.Escape (Utilities.formatTypeFullName t),
       t.Name,
       String.Join(",\r\n      ", args),
+      tn,
       String.Join(";\r\n      ", inits),
       String.Join("\r\n  ", paramLists))
 
