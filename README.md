@@ -81,8 +81,8 @@ type InsertLoggingVisitor() =
   
 ## Library depends
 
-* FSharp.Core >= 4.0.0.1
-* FSharp.Compiler.Service >= 6.0.2
+* FSharp.Core >= 4.1.17
+* FSharp.Compiler.Service >= 12.0.8
 
 ## Maintainers
 
