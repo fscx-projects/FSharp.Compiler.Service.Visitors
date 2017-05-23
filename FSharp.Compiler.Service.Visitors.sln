@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Compiler.Service.Visitors.NET45", "FSharp.Compiler.Service.Visitors.NET45\FSharp.Compiler.Service.Visitors.NET45.fsproj", "{00CABF76-5950-4075-AC1A-89006C7D6BBB}"
 EndProject

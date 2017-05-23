@@ -29,8 +29,10 @@
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.dll" target="lib/net45" />
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.xml" target="lib/net45" />
     <file src="FSharp.Compiler.Service.Visitors.NET45/bin/$Configuration$/FSharp.Compiler.Service.Visitors.pdb" target="lib/net45" />
+    <!-- Currently not supported for netstandard 1.6
     <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.dll" target="lib/netstandard1.6" />
     <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.xml" target="lib/netstandard1.6" />
     <file src="FSharp.Compiler.Service.Visitors.netstandard16/bin/$Configuration$/FSharp.Compiler.Service.Visitors.pdb" target="lib/netstandard1.6" />
+    -->
   </files>
 </package>

@@ -1,0 +1,36 @@
+<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>FSharp.Compiler.Service.Visitors</AssemblyName>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.4" PrivateAssets="All" />
+    <PackageReference Include="FSharp.Core" Version="4.1.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstCommon.fs">
+      <Link>AstCommon.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstElement.fs">
+      <Link>AstElement.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstRecordCons.fs">
+      <Link>AstRecordCons.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstUnionCons.fs">
+      <Link>AstUnionCons.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstFunctionalVisitor.fs">
+      <Link>AstFunctionalVisitor.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharp.Compiler.Service.Visitors\AstInheritableVisitor.fs">
+      <Link>AstInheritableVisitor.fs</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>
